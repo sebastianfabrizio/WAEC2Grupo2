@@ -45,8 +45,6 @@ public class EspecialidadController {
         boolean rs = true;
         String men = "Guardado Exitosamente";
         try {
-            Medico m = new Medico();
-            m.setIdmedico(especialidadRequest.getIdmedico());
             Especialidad e = new Especialidad();
             if(especialidadRequest.getIdmedico() > 0) {
                 e.setIdespecialidad(especialidadRequest.getIdespecialidad());
@@ -54,10 +52,11 @@ public class EspecialidadController {
             e.setTitulo(especialidadRequest.getTitulo());
             e.setFuncion(especialidadRequest.getFuncion());
             e.setFechgraduacion(especialidadRequest.getFechgraduacion());
+            e.setIdmedico(especialidadRequest.getIdmedico());
             especialidadService.guardarEspecialidad(e);
         }catch (Exception e) {
             rs = false;
-            men = "Error No Se Pudo Guardar";
+            men = "Error No Se Pudo Guardar" + e.getCause().getMessage();
         }
         return RespuestaResponse.builder().resultado(rs).mensaje(men).build();
     }
