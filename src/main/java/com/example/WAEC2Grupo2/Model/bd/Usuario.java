@@ -4,7 +4,6 @@ package com.example.WAEC2Grupo2.Model.bd;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity

@@ -1,7 +1,6 @@
 package com.example.WAEC2Grupo2.Controller.backoffice;
 
 import com.example.WAEC2Grupo2.Model.bd.Usuario;
-import com.example.WAEC2Grupo2.Model.dto.response.RespuestaResponse;
 import com.example.WAEC2Grupo2.Services.IUsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -11,7 +10,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @AllArgsConstructor
 @Controller

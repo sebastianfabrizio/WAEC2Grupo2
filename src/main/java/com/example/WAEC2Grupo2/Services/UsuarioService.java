@@ -6,6 +6,7 @@ import com.example.WAEC2Grupo2.Repository.RolRepository;
 import com.example.WAEC2Grupo2.Repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
