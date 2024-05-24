@@ -17,7 +17,7 @@ public class Medico {
     private Integer idmedico;
     private String nommedico;
     private String apemedico;
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechnacmedico;
 
     @OneToMany(mappedBy = "medico")
