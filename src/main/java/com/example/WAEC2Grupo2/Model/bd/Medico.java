@@ -1,6 +1,7 @@
 package com.example.WAEC2Grupo2.Model.bd;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,9 +18,10 @@ public class Medico {
     private Integer idmedico;
     private String nommedico;
     private String apemedico;
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechnacmedico;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "medico")
     private List<Especialidad> especialidadList;
 
