@@ -2,7 +2,6 @@ package com.example.WAEC2Grupo2.Controller.backoffice;
 
 import com.example.WAEC2Grupo2.Model.bd.Especialidad;
 import com.example.WAEC2Grupo2.Model.bd.Medico;
-import com.example.WAEC2Grupo2.Model.dto.request.EspecialidadRequest;
 import com.example.WAEC2Grupo2.Model.dto.response.RespuestaResponse;
 import com.example.WAEC2Grupo2.Services.IEspecialidadService;
 import com.example.WAEC2Grupo2.Services.IMedicoService;
@@ -41,19 +40,14 @@ public class EspecialidadController {
 
     @PostMapping(value = "/home")
     @ResponseBody
-    public RespuestaResponse guardarEspecialidad(@RequestBody EspecialidadRequest especialidadRequest) {
+    public RespuestaResponse guardarEspecialidad(@RequestBody Especialidad especialidad) {
         boolean rs = true;
         String men = "Guardado Exitosamente";
         try {
-            Especialidad e = new Especialidad();
-            if(especialidadRequest.getIdmedico() > 0) {
-                e.setIdespecialidad(especialidadRequest.getIdespecialidad());
+            if(especialidad.getIdespecialidad() > 0) {
+                especialidadService.guardarEspecialidad(especialidad);
             }
-            e.setTitulo(especialidadRequest.getTitulo());
-            e.setFuncion(especialidadRequest.getFuncion());
-            e.setFechgraduacion(especialidadRequest.getFechgraduacion());
-            e.setIdmedico(especialidadRequest.getIdmedico());
-            especialidadService.guardarEspecialidad(e);
+            especialidadService.guardarEspecialidad(especialidad);
         }catch (Exception e) {
             rs = false;
             men = "Error No Se Pudo Guardar" + e.getCause().getMessage();

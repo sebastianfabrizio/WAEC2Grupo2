@@ -28,6 +28,26 @@ $(document).on("click",".btnguardar", function () {
             }else {
                 alert(resultado.mensaje);
             }
+            $("#modalespecilidad").modal("hide");
+        }
+    });
+
+});
+
+$(document).on("click", ".btnactualizar", function () {
+
+    $.ajax({
+        type: "GET",
+        url: "/especialidad/especialidad/" + $(this).attr("data-idespecialidad"),
+        dataType: "json",
+        success: function (resultado) {
+            $("#txtidespecilidad").val(resultado.idespecialidad);
+            $("#txttitulo").val(resultado.titulo);
+            $("#txtfuncion").val(resultado.funcion);
+            $("#txtfechgraduacion").val(resultado.fechgraduacion);
+            $("#cbomedico").val(resultado.idmedico);
+            cargarComboMedicos(resultado.idmedico)
+            $("#modalespecilidad").modal("show");
         }
     });
 

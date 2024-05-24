@@ -19,7 +19,7 @@ public class Especialidad {
     private LocalDate fechgraduacion;
     private Integer idmedico;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "idmedico", insertable = false, updatable = false)
     private Medico medico;
 }
